@@ -1,6 +1,7 @@
 import express from 'express'
 import jwt from 'jsonwebtoken'
 import mongoose from 'mongoose'
+import fs from 'fs'
 import bcrypt from "bcrypt"
 import { registerValidations,postUpdateValidations, loginValidations, postCreateValidations } from './validations/auth.js'
 import { validationResult } from 'express-validator'
@@ -27,6 +28,9 @@ const app = express()
 
 const storage = multer.diskStorage({
     destination:(_, __, callback)=>{
+        if(!fs.existsSync('uploads')){
+            fs.mkdirSync('uploads')
+        }
         callback(null,'uploads')
     },
     filename:(_, file, callback)=>{
