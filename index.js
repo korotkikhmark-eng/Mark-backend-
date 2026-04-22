@@ -33,10 +33,7 @@ const storage = multer.diskStorage({
         callback(null, file.originalname)
     },
 })
-app.use(cors({
-  origin: 'http://localhost:3000', // Только с этого домена
-  credentials: true // Разрешить куки/авторизацию
-}));
+app.use(cors());
 
 const upload = multer({storage})
 
