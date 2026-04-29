@@ -142,7 +142,7 @@ export const update = async (req,res) =>{
 
     }catch(e){
         console.log(e)
-        res.status(500).json("Не удалось обновить статью")
+        res.status(500).json(" Не удалось обновить статью")
     }
 }
 
