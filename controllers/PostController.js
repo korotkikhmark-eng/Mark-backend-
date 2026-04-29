@@ -134,7 +134,6 @@ export const update = async (req,res) =>{
             text:req.body.text,
             tags:req.body.tags,
             imageUrl:req.body.imageUrl,
-            user: req.userId,
             comments: req.body.comments,
             
         })
